@@ -1,0 +1,69 @@
+Team Number 015-02
+
+Team name The Home-ies
+
+Team Members Zuojun Lin, Dawson Davis-Pounders, Caleb Lowe, Collin Lowe, Reese Kilbarger-Stumpff
+
+Application Name: Home Hub - Your Personal Home Display
+
+Application Description:
+
+HomeHub -   Your Personal Home Display is the central command center for the interconnected modern home.
+            This application offers an intuitive graphical user interface that allows users to seamlessly manage
+            and integrate their daily tasks, home devices, and personal health data into one customizable dashboard.
+
+    Key features include:
+
+    User Authentication:
+        A secure system ensures that each user's settings and data remain private, while also offering
+        personalized recommendations and enhanced security for user data.
+
+    Personal Calendar:
+        Users can easily organize their schedules and shopping tasks by adding, editing, or removing entries
+        on a responsive daily calendar and a dynamic shopping list, both accessible directly from the HomeHub dock.
+
+    Shopping List:
+        With the Shopping List feature of HomeHub, grocery shopping and household errands become effortlessly organized,
+        allowing you to focus on what truly matters in your interconnected modern home.
+
+    Weather Display:
+        HomeHub provides real-time weather updates and forecasts tailored to the user's location, offering convenience
+        and preparedness as part of the daily routine.
+
+    Smart Home Device Integration:
+        Users gain the ability to control their smart home appliances, such as lighting and thermostats,
+        directly through HomeHub, creating a more responsive and energy-efficient living environment.
+
+    Wearable Health Tracker Information: 
+        By displaying health data from wearable devices, such as step count and heart rate, HomeHub
+        encourages a healthy lifestyle and enables users to monitor their physical activity and well-being with ease.
+
+    Traffic Displays: 
+        Commuters can stay ahead of the game with real-time traffic updates and personalized route displays,
+        helping to optimize travel times and reduce the daily commute stress.
+
+    To-Do Lists: 
+        HomeHub helps users stay on top of their tasks with customizable to-do lists that keep important
+        tasks in clear view, ensuring nothing gets missed in the hustle of everyday life.
+
+Each feature is designed to bring convenience, control, and connectivity to the user's fingertips, 
+making HomeHub an indispensable part of the smart home ecosystem.
+
+
+Vision Statement: 
+    For the modern homeowner who seeks convenience and control over their living environment,
+    Home Hub is a home automation interface that centralizes control of smart home devices
+    and access to personalized information. 
+
+Version Control: https://github.com/reesekshub/homeHub_v0/tree/main 
+
+Development Methodology: 
+    We will be using agile Methodology because of its flexibility and ability to divide work
+
+Communication Plan: 
+    We will be using Discord for communication regarding the actual content of the project.
+    We will also use text messages for planning and notification purposes.
+
+Meeting Plan:
+    Team Meetings: meetings via discord
+    TA Meetings: We will meet with TA on Monday @ 2:45pm - 3:00pm via a zoom call.
