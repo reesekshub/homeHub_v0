@@ -1,6 +1,6 @@
 1. Main page............................................................Done
-2. Login page
-3. Shopping list edit menu
+2. Login page...........................................................Done
+3. Shopping list edit menu .............................................Done
 4. Calendar event edit widget (is this google calendar integration?)
 5. Weather expansion?
 6. Traffic expansion?
