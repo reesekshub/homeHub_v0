@@ -1,0 +1,8 @@
+1. Main page............................................................Done
+2. Login page
+3. Shopping list edit menu
+4. Calendar event edit widget (is this google calendar integration?)
+5. Weather expansion?
+6. Traffic expansion?
+7. Settings page
+8. Todo list edit menu
