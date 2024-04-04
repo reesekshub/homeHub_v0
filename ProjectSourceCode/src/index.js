@@ -107,20 +107,28 @@ app.get('/register', (req, res) => {
 res.render('pages/register');
 });
 
+
 // Register
 app.post('/register', async (req, res) => {
-    //hash the password using bcrypt library
-    const hash = await bcrypt.hash(req.body.password, 10);
-  
-    // To-DO: Insert username and hashed password into the 'users' table
-    db.none('INSERT INTO users(username, password) VALUES($1, $2)', [req.body.username, hash])
-      .then(() => {
-        res.redirect('/login');
-      })
-      .catch(error => {
-        res.send('Error creating user');
-      });
-  });
+  const { username, password } = req.body;
+
+  // Check if username or password is empty
+  if (!username || !password) {
+      return res.status(400).send('Username and password are required');
+  }
+
+  try {
+      // Hash the password using bcrypt library
+      const hash = await bcrypt.hash(password, 10);
+
+      // Insert username and hashed password into the 'users' table
+      await db.none('INSERT INTO users(username, password) VALUES($1, $2)', [username, hash]);
+      res.redirect('/login');
+  } catch (error) {
+      res.status(500).send('Error creating user');
+  }
+});
+
 
 // Login
   app.get('/login', (req, res) => {
