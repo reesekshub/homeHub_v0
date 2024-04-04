@@ -27,6 +27,33 @@ describe('Server!', () => {
   });
 });
 
+//postive&negetive test//
+describe('Registration API Tests', () => {
+  it('Positive Test Case: Successfully registers a new user', done => {
+    chai.request(server)
+      .post('/register')
+      .send({ username: 'ptest1@gmail.com', password: '123' })
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res.body.message).to.equal('User registered successfully');
+        done();
+      });
+  });
+});
+
+describe('Registration API Tests', () => {
+  it('Negative Test Case: Fails to register a new user due to invalid email', done => {
+    chai.request(server)
+      .post('/register')
+      .send({ username: 'ntest@gmail.com', password: '123' })
+      .end((err, res) => {
+        expect(res).to.have.status(400);
+        expect(res.body.message).to.equal('Invalid input');
+        done();
+      });
+  });
+});
+
 // *********************** TODO: WRITE 2 UNIT TESTCASES **************************
 
 // ********************************************************************************
