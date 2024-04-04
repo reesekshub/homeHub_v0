@@ -1,0 +1,71 @@
+Feature 1: Personal Calendar
+    Specific Test Cases
+        User should be able to add events
+        User should be able to remove events
+        User should be able to edit events
+    Description of Test Data
+        General
+            Each event will have a field for event name,date, a start and end time, a location, a URL, and notes. Only the Date and start time fields will be mandatory.
+            Rules For Each field
+                Event Name: Allow all alphanumeric characters
+                Date: Has to be in format MM/DD/YEAR
+                Start Time: Has to be in format 00:00
+                End Time: Has to be in format 00:00
+                Location: Allow all alphanumeric characters
+                URL: Has to be a valid URL
+                Notes: Allow all alphanumeric characters
+
+                Event Name, Date and Start Time are the only required fields.
+        Specific Example of Test Data 
+            Adding Event
+                The interview is an Interview on May 1, 2024 with a Start Time: 10:15am, End Time: 11:15am at the University Memorial Center, URL and notes are blank
+            Editing Event
+                Interview has been changed to a remote interview and now starts an hour earlier
+    Description of Test Environment
+        The test environment should be the cloud so the user's changes to the events can be accessed from other devices
+    Description of Test Results
+        General Behavior
+            If the required fields are filled out correctly, and all other fields that are filled out match the specified format, then add the event to the calendar
+            If the required fields are not filled out correctly or any field is filled out with invalid formatting, then do not add the event to the calendar, and instead prompt user to fix the field that has issues
+            
+        For the Example
+            After Adding the Event these should be the values for each field
+                Event Name: Interview, Date: May 1, 2024, Start Time: 10:15am, End Time: 11:15am, Location: University Memorial Center, URL and notes are blank
+            After Editing Event, these should be the values for each field
+                Event Name: Interview, Date: May 1, 2024, Start Time: 9:15am, End Time: 11:15am, Location: University Memorial Center,URL and notes are blank
+            After Deleting Event 
+                All fields should not contain any values
+    Details about User Acceptance Testers
+        User acceptance testers will be told about the function of the calendar and the formatting requirements for each field.
+
+
+
+
+
+Feature 2: Weather Display
+    Specific Test Cases
+        User should be able to see the weather for their current location
+        User should receive updates for the weather
+    Description of Test Data 
+        User should go to a specific location and check the weather. Then the user should move to another location and see if the weather updates appropriately.
+    Description of Test Environment
+        The test environment should be in the cloud to make sure the user is getting the real-time data.
+    Description of Test Results
+        User should get accurate weather information for their current location, and if they move to an area with a different forecast they should receive the updated weather.
+    Details about User Acceptance Testers
+        User acceptance testers need to be able to move between locations with different forecasts and have internet access at each location.
+
+Feature 3: To-Do Lists
+    Specific Test Cases
+       Users should be able to add items to the list
+       Users should be able to change the status of each item between To-Do, In Progress and Completed
+    Description of Test Data 
+        The name of the item to the list can have any alphanumeric character, and has to be filled out with at least one character
+        Every item has to have an associated status.
+        Data will be tested by adding items to the list and changing the status of some items, then closing the application and checking if the changes were maintained.
+    Description of Test Environment
+        The testing environment should be the cloud so changes will be updated.
+    Description of Test Results
+      All modifications made to items on the list should be saved to the cloud  
+    Details about User Acceptance Testers
+        User acceptance testers will be told what the list does, and they will be told that every item has to have at least one character and an associated status.
