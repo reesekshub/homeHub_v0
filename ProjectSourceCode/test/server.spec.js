@@ -45,7 +45,7 @@ describe('Registration API Tests', () => {
   it('Negative Test Case: Fails to register a new user due to invalid email', done => {
     chai.request(server)
       .post('/register')
-      .send({ username: 'ntest@gmail.com', password: '123' })
+      .send({ username: '', password: '123' })
       .end((err, res) => {
         expect(res).to.have.status(400);
         expect(res.body.message).to.equal('Invalid input');
