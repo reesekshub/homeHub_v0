@@ -89,6 +89,9 @@ app.get('/', (req, res) => {
     res.redirect('/login'); //this will call the /anotherRoute route in the API
   });
   
+  app.get('/discover', (req, res) => {
+    res.render('pages/discover', { title: 'Discover' });
+});
 
 
 // Logout
@@ -155,7 +158,7 @@ app.post('/register', async (req, res) => {
     if (match === true) {
       req.session.user = user;
       req.session.save();
-      res.redirect('discover');
+      res.redirect('/discover');
       } else {
       res.render('pages/login', { message: 'Incorrect password' });
     }
@@ -164,6 +167,9 @@ app.post('/register', async (req, res) => {
     //user: tester1
     //pass: test1
   });
+
+// index.js
+
 
 
 
