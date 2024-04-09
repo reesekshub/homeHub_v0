@@ -1,17 +1,89 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <title>Home</title>
- <link rel="stylesheet" type="text/css" href="../../resources/css/style.css">
-
-</head>
-<body>
-    <h1>Welcome to the Home Page!</h1>
-    <!-- Add your other home page content here -->
-    
-    <!-- Calendar -->
-    <div id="calendar"></div>
+  <head>
+    <title>Calendar</title>
+    <!-- Bootstrap CSS library -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <!-- Bootstrap JS library -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Bootstrap icons library -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+    <!-- Replace file.js with the appropriate path to script.js. Please use relative paths -->
     <script src="../../resources/js/script.js"></script>
+    <!-- Replace file.css with the appropriate path to style.css. Please use relative paths -->
+    <link rel="stylesheet" href="../../resources/css/style.css" />
+  </head>
 
-</body>
+  <body onload="initializeCalendar()">
+    <!-- Calendar elements -->
+    <div class="container">
+      <!-- All elements of the webpage will be added within this div -->
+   <div id="calendar" class="row" style="position: absolute; top: 75px; left: 20px; width: 800px; height: 300px;"></div>
+    </div>
+    <!-- Modal elements -->
+    <div class="modal" tabindex="-1" id="event-modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-title">Event</div>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="event_name" class="form-label">Event Name</label>
+                <input type="text" class="form-control" id="event_name">
+              </div>
+              <div class="mb-3">
+                <label for="event_day" class="form-label">Weekday</label>
+                <select class="form-select" id="event_day">
+                  <option selected>Choose...</option>
+                  <option value="monday">Monday</option>
+                  <option value="tuesday">Tuesday</option>
+                  <option value="wednesday">Wednesday</option>
+                  <option value="thursday">Thursday</option>
+                  <option value="friday">Friday</option>
+                  <option value="saturday">Saturday</option>
+                  <option value="sunday">Sunday</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="event_time" class="form-label">Time</label>
+                <input type="time" id="event_time" name="event_time" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label for="event_modality" class="form-label">Event Modality</label>
+                <select class="form-select" id="event_modality" onchange="updateLocationOptions(this.value)">
+                    <option selected>Choose...</option>
+                    <option value="in-person">In-Person</option>
+                    <option value="remote">Remote</option>
+                </select>
+            </div>
+            <div class="mb-3" id="location-field">
+                <label for="event_location" class="form-label">Location</label>
+                <input type="text" class="form-control" id="event_location" placeholder="Please Enter Location">
+            </div>
+            <div class="mb-3" id="remote-field" style="display: none;">
+                <label for="event_url" class="form-label">Remote URL</label>
+                <input type="url" class="form-control" id="event_url" placeholder="Enter the meeting URL (Zoom, MS Teams etc.)" required pattern="https?://.+">
+            </div>
+              <div class="mb-3">
+                <label for="event_attendees" class="form-label">Attendees</label>
+                <input type="text" class="form-control" id="event_attendees">
+              </div>
+              
+              <!-- Add the rest of your form fields here -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Close
+                </button>
+                <button id="submit_button" class="btn btn-primary" type="submit">
+                  Create Event
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
