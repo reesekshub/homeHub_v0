@@ -15,3 +15,39 @@ body {
 #calendar {
   height: 100vh;
 }
+
+.weather {
+  width: 300px;
+  height: 150px;
+  background-color: #eee;
+  border-radius: 10px;
+  text-align: center;
+  margin: 50px auto;
+  padding: 20px;
+}
+ 
+.city {
+  font-size: 25px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 15px;
+}
+ 
+.temp {
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+ 
+.description {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 15px;
+}
+ 
+.icon {
+  width: 50px;
+  height: auto;
+  margin-top: 10px;
+}
