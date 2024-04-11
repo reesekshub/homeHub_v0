@@ -27,7 +27,7 @@ describe('Server!', () => {
   });
 });
 
-//postive&negetive test//
+//********************** REGISTRATION TESTCASES *********************** */
 describe('Registration API Tests', () => {
   it('Positive Test Case: Successfully registers a new user', done => {
     chai.request(server)
@@ -39,9 +39,7 @@ describe('Registration API Tests', () => {
         done();
       });
   });
-});
 
-describe('Registration API Tests', () => {
   it('Negative Test Case: Fails to register a new user due to invalid email', done => {
     chai.request(server)
       .post('/register')
@@ -54,6 +52,31 @@ describe('Registration API Tests', () => {
   });
 });
 
-// *********************** TODO: WRITE 2 UNIT TESTCASES **************************
+//********************** LOGIN TESTCASES *********************** */
+describe('Login API Tests', () => {
+  it('Positive Test Case: Successfully logs in with valid credentials', done => {
+    chai.request(server)
+      .post('/login')
+      .send({ username: 'ptest1@gmail.com', password: '123' })
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res.body.message).to.equal('Login successful');
+        done();
+      });
+  });
+
+  it('Negative Test Case: Fails to log in with invalid credentials', done => {
+    chai.request(server)
+      .post('/login')
+      .send({ username: 'ptest1@gmail.com', password: 'wrongpassword' })
+      .end((err, res) => {
+        expect(res).to.have.status(401);
+        expect(res.body.message).to.equal('Invalid credentials');
+        done();
+      });
+  });
+});
+
+
 
 // ********************************************************************************
