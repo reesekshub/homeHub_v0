@@ -89,7 +89,9 @@ app.get("/", (req, res) => {
 });
 
 app.get("/discover", (req, res) => {
-  res.render("pages/discover", { title: "Discover" });
+  const isAuthenticated = req.session.isAuthenticated;
+  const results = response.data._embedded ? response.data._embedded.events : [];
+  res.render('pages/discover', { results });
 });
 
 // Logout
