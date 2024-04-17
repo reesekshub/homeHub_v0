@@ -195,6 +195,20 @@ app.post("/login", async (req, res) => {
 //     console.log(err);
 //   });
 
+
+//traffic
+function initMap() {
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 13,
+    center: { lat: 40.00871694003811, lng: -105.26862404425269 },
+  });
+  const trafficLayer = new google.maps.TrafficLayer();
+
+  trafficLayer.setMap(map);
+}
+
+window.initMap = initMap;
+//
 // *****************************************************
 // <!-- Section 5 : Start Server-->
 // *****************************************************
