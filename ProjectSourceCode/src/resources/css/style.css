@@ -25,29 +25,43 @@ body {
   margin: 50px auto;
   padding: 20px;
 }
- 
+
 .city {
   font-size: 25px;
   font-weight: bold;
   display: block;
   margin-bottom: 15px;
 }
- 
+
 .temp {
   font-size: 18px;
   font-weight: bold;
   display: block;
   margin-bottom: 10px;
 }
- 
+
 .description {
   font-size: 16px;
   display: block;
   margin-bottom: 15px;
 }
- 
+
 .icon {
   width: 50px;
   height: auto;
   margin-top: 10px;
+}
+
+#map {
+  height: 100%;
+}
+
+/* 
+ * Optional: Makes the sample page fill the window. 
+ */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
