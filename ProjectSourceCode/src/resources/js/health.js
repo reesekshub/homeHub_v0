@@ -50,5 +50,27 @@ function addSaveButtonListener() {
     saveButton.addEventListener('click', saveChanges);
 }
 
+function saveSleepChanges() {
+    // Get the input value
+    var inputSleep = document.getElementById('inputSleep').value;
+
+    // Get the result element
+    var resultSleep = document.getElementById('resultSleep');
+
+    // Set the result element with the input value
+    resultSleep.textContent = parseFloat(resultSleep.textContent) + (parseFloat(inputSleep) - 8);
+
+    // Close the modal after saving changes
+    var myModal = bootstrap.Modal.getInstance(document.getElementById('sleepModal'));
+    myModal.hide();
+}
+
+function addSleepButtonListener() {
+    var saveButton = document.querySelector('#sleepModal .btn-primary');
+    saveButton.addEventListener('click', saveSleepChanges);
+}
+
+document.addEventListener('DOMContentLoaded', addSleepButtonListener);
+
 // Call the function to add event listener after the DOM is loaded
 document.addEventListener('DOMContentLoaded', addSaveButtonListener);
