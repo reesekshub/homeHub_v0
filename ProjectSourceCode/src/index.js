@@ -131,6 +131,7 @@ app.post("/register", async (req, res) => {
     res.status(500).send("Error creating user");
   }
 });
+
 // Display password change form
 app.get("/change-password", auth, (req, res) => {
   res.render("change-password");
@@ -145,7 +146,6 @@ app.post("/change-password", auth, async (req, res) => {
 
   res.redirect("/profile"); // Redirect to profile page after password change
 });
-
 
 // Login
 app.get("/login", (req, res) => {
@@ -183,48 +183,57 @@ app.post("/login", async (req, res) => {
   //pass: test1
 });
 
-
-//local weather!!!!!!here
-// let city = "";
-// let apiKey = "your_api_key";
-
-// let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&lang=zh_cn`;
-
-// fetch(url)
-//   .then(response => response.json())
-//   .then(data => {
-//     console.log(data);
-
-//     let cityName = data.name;
-//     let temperature = Math.round(data.main.temp - 273.15);
-//     let description = data.weather[0].description;
-//     let iconCode = data.weather[0].icon;
-
-//     document.querySelector(".city").textContent = cityName;
-//     document.querySelector(".temp").textContent = `${temperature}°C`;
-//     document.querySelector(".description").textContent = description;
-//     document.querySelector(".icon").setAttribute("src", `http://openweathermap.org/img/w/${iconCode}.png`);
-//   })
-//   .catch(err => {
-//     console.log(err);
-//   });
-
-
-//traffic
-function initMap() {
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 13,
-    center: { lat: 40.00871694003811, lng: -105.26862404425269 },
-  });
-  const trafficLayer = new google.maps.TrafficLayer();
-
-  trafficLayer.setMap(map);
-}
-
-window.initMap = initMap;
-//
 // *****************************************************
-// <!-- Section 5 : Start Server-->
+// <!-- Section 5 : Smart Home Device Integration -->
+// *****************************************************
+
+// Route for retrieving smart home device data
+app.get("/devices", async (req, res) => {
+  try {
+    // Make a request to the smart home device API to retrieve device data
+    const deviceData = await axios.get("https://api.example.com/devices", {
+      headers: {
+        Authorization: `Bearer ${req.session.accessToken}`, // Include access token for authentication
+      },
+    });
+
+    // Send the device data as a response
+    res.json(deviceData.data);
+  } catch (error) {
+    console.error("Error retrieving device data:", error);
+    res.status(500).json({ error: "Failed to retrieve device data" });
+  }
+});
+
+// Route for controlling smart home devices
+app.post("/control/:deviceId", async (req, res) => {
+  const deviceId = req.params.deviceId;
+  const { action } = req.body;
+
+  try {
+    // Make a request to the smart home device API to control the specified device
+    const response = await axios.post(
+      `https://api.example.com/devices/${deviceId}/control`,
+      {
+        action: action,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${req.session.accessToken}`, // Include access token for authentication
+        },
+      }
+    );
+
+    // Send the response from the smart home device API as a response
+    res.json(response.data);
+  } catch (error) {
+    console.error("Error controlling device:", error);
+    res.status(500).json({ error: "Failed to control device" });
+  }
+});
+
+// *****************************************************
+// <!-- Section 6 : Start Server-->
 // *****************************************************
 // starting the server and keeping the connection open to listen for more requests
 
