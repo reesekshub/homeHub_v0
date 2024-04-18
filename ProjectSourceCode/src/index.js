@@ -90,8 +90,7 @@ app.get("/", (req, res) => {
 
 app.get("/discover", (req, res) => {
   const isAuthenticated = req.session.isAuthenticated;
-  const results = response.data._embedded ? response.data._embedded.events : [];
-  res.render('pages/discover', { results });
+  res.render('pages/discover');
 });
 
 // Logout
@@ -207,7 +206,7 @@ function initMap() {
   trafficLayer.setMap(map);
 }
 
-window.initMap = initMap;
+//window.initMap = initMap;
 //
 // *****************************************************
 // <!-- Section 5 : Start Server-->
