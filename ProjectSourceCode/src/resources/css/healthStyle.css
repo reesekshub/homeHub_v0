@@ -1,0 +1,30 @@
+.boxyboy {
+    background-color: black;
+    color: white;
+    width: 185px;
+    height: 300px;
+    display: inline-block; 
+    margin-right: 10px; 
+  }
+  
+  #health {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      height: 300px;
+      width: 800px;
+      display: flex; /* Updated */
+      flex-direction: row; /* Added */
+  }
+  
+  #results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  #sleepCard {
+      text-align: center
+     
+      
+  }
