@@ -1,0 +1,25 @@
+<!-- profile.hbs -->
+<div class="container">
+    <h2>User Profile</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>User Information</h3>
+            <form action="/update-profile" method="POST">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" id="username" name="username" value="{{username}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" value="{{email}}" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update Profile</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h3>Actions</h3>
+            <a href="/change-password" class="btn btn-primary">Change Password</a>
+        </div>
+    </div>
+</div>
