@@ -89,7 +89,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/discover", (req, res) => {
-  res.render("pages/discover", { title: "Discover" });
+  const isAuthenticated = req.session.isAuthenticated;
+  res.render('pages/discover');
 });
 
 // Logout
@@ -205,7 +206,7 @@ function initMap() {
   trafficLayer.setMap(map);
 }
 
-window.initMap = initMap;
+//window.initMap = initMap;
 //
 // *****************************************************
 // <!-- Section 5 : Start Server-->
