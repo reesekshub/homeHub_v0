@@ -196,7 +196,7 @@ app.post("/login", async (req, res) => {
 
 
 //traffic
-function initMap() {
+/* function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 13,
     center: { lat: 40.00871694003811, lng: -105.26862404425269 },
@@ -204,7 +204,7 @@ function initMap() {
   const trafficLayer = new google.maps.TrafficLayer();
 
   trafficLayer.setMap(map);
-}
+} */
 
 //window.initMap = initMap;
 //
