@@ -1,0 +1,15 @@
+/* style.css */
+
+.shopping-list.horizontal {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Display the list items horizontally */
+}
+
+.shopping-list.horizontal li {
+    margin-right: 10px; /* Adjust spacing between items */
+    padding: 5px 10px;
+    background-color: #f0f0f0; /* Background color of each item */
+    border-radius: 5px;
+}

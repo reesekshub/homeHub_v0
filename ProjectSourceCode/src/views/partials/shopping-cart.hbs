@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping Cart</title>
+    <!-- Bootstrap CSS library -->
+    <style>
+        .shopping-cart {
+            position: fixed;
+            top: 80px;
+            right: 480px;
+            width: 150px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+           
+        }
+
+        .shopping-cart-item {
+            margin-bottom: 10px;
+        }
+
+        .add-item-btn {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shopping-cart">
+        <h3>Shopping Cart</h3>
+        <ul id="shopping-cart-items" class="list-group">
+            <!-- Shopping cart items will be dynamically added here -->
+        </ul>
+        <div class="mb-3">
+            <input type="text" id="item-input" class="form-control" placeholder="Enter item...">
+        </div>
+        <button id="add-item-btn" class="btn btn-primary add-item-btn">Add Item</button>
+    </div>
+
+    <!-- Handlebars library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <!-- Your custom JavaScript file -->
+    <script src="script.js"></script>
+</body>
+
+</html>
