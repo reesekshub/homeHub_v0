@@ -1,18 +1,64 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Local weather</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="weather">
-      <span class="city"></span>
-      <span class="temp"></span>
-      <span class="description"></span>
-      <img class="icon"/>
+<html lang="en">
+
+<head>
+
+    <title>CODE WITH HOSSEIN</title>
+
+    <!-- Fontawesome Icons v6.2.0 -->
+    <script src="https://kit.fontawesome.com/7c8801c017.js" crossorigin="anonymous"></script>
+
+    <!-- Roboto Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS File -->
+    <link rel="stylesheet" href="ProjectSourceCode/src/resources/css/style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="search-box">
+            <i class="fa-solid fa-location-dot"></i>
+            <input type="text" placeholder="Enter Your Location">
+            <button class="fa-solid fa-magnifying-glass"></button>
+        </div>
+
+        <div class="not-found">
+            <img src="ProjectSourceCode/src/resources/images/404.png" alt="...">
+            <p>Oops! Invalid Location :/</p>
+        </div>
+
+        <div class="weather-box">
+            <img src="" alt="...">
+            <p class="temperature"></p>
+            <p class="description"></p>
+        </div>
+
+        <div class="weather-details">
+            <div class="humidity">
+                <i class="fa-solid fa-water"></i>
+                <div class="text">
+                    <span></span>
+                    <p>Humidity</p>
+                </div>
+            </div>
+            <div class="wind">
+                <i class="fa-solid fa-wind"></i>
+                <div class="text">
+                    <span></span>
+                    <p>Wind Speed</p>
+                </div>
+            </div>
+        </div>
+
     </div>
- 
-    <script src="index.js"></script>
-  </body>
+
+    <!-- JS File -->
+    <script src="ProjectSourceCode/src/index.js" type="text/javascript"></script>
+
+</body>
+
 </html>
