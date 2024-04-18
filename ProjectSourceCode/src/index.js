@@ -131,6 +131,21 @@ app.post("/register", async (req, res) => {
     res.status(500).send("Error creating user");
   }
 });
+// Display password change form
+app.get("/change-password", auth, (req, res) => {
+  res.render("change-password");
+});
+
+// Handle password change form submission
+app.post("/change-password", auth, async (req, res) => {
+  const { oldPassword, newPassword, confirmPassword } = req.body;
+
+  // Add logic to verify old password, match new and confirm passwords,
+  // hash the new password, and update it in the database
+
+  res.redirect("/profile"); // Redirect to profile page after password change
+});
+
 
 // Login
 app.get("/login", (req, res) => {
@@ -167,6 +182,7 @@ app.post("/login", async (req, res) => {
   //user: tester1
   //pass: test1
 });
+
 
 //local weather!!!!!!here
 // let city = "";
