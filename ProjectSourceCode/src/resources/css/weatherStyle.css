@@ -7,14 +7,10 @@
 }
 
 body {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #06283D;
+  background: #78b4da;
 }
 
-.container1 {
+#weathercontainer {
     position: relative;
     width: 400px;
     height: 105px;
@@ -27,10 +23,12 @@ body {
 }
 
 .search-box {
-    width: 100%;
-    height: min-content;
+    position: absolute;
+    color: #06283Ddc;
+    font-size: 28px;
     display: flex;
-    align-items: center;
+    align-items: right;
+    right: 30px;
     justify-content: space-between;
 }
 
@@ -62,8 +60,7 @@ body {
 }
 
 .search-box button:hover {
-    color: #fff;
-    background: #06283Ddc;
+    background: #720d4adc;
 }
 
 .search-box i {
