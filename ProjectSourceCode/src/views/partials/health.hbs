@@ -1,0 +1,149 @@
+<head>
+  <title> </title>
+  <!-- Bootstrap CSS library -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous"
+  />
+  <!-- Bootstrap JS library -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
+  <!-- Bootstrap icons library -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+  />
+  <!-- Replace file.js with the appropriate path to script.js. Please use relative paths -->
+  <script src="../../resources/js/healthScript.js"></script>
+  <!-- Replace file.css with the appropriate path to style.css. Please use relative paths -->
+  <link rel="stylesheet" href="../../resources/css/healthStyle.css" />
+
+</head>
+
+
+
+
+<div id="health">
+
+    <div id="results">
+
+        <!-- This is where the results will be displayed -->
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                
+                <!-- Button trigger modal -->
+                <button id="openModalButton" type="button" class="btn btn-primary square-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Add Today's Activities! <i class="bi bi-plus-circle"></i>
+                </button>
+
+
+                <h5 class="card-title">All Time Stats</h5>
+                <div class="row">
+                    <div class="col">
+                        <h6 class="card-subtitle mb-2 text-muted">Total Miles Ran</h6>
+                        <p id="resultRun">0</p>
+                    </div>
+                    <div class="col">
+                        <h6 class="card-subtitle mb-2 text-muted">Total Miles Biked</h6>
+                        <p id="resultBike">0</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h6 class="card-subtitle mb-2 text-muted">Total Hours Weight Lifting</h6>
+                        <p id="resultWeight">0</p>
+                    </div>
+                    <div class="col">
+                        <h6 class="card-subtitle mb-2 text-muted">Total Calories Burnt</h6>
+                        <p id="resultCals">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<div class="card" id="sleepCard" style="width: 18rem;">
+  <div class="card-body">
+    
+    <button id="openModalButton" type="button" class="btn btn-primary square-button" data-bs-toggle="modal" data-bs-target="#sleepModal">
+                    Add Last Nights Sleep <i class="bi bi-plus-circle"></i>
+        </button>
+        <h3 class="card-title" style="padding-top: 25px;">Sleep Debt</h3>
+        <h5 id="resultSleep">0</h5> 
+        <p>
+            If you're sleep debt is negative, You need more sleep!
+            
+            If your sleep debt is positive, you're getting enough sleep!
+        </p>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">What did you do today?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="input1" class="form-label">Miles Ran:</label>
+                        <input type="number" class="form-control" id="inputRun" step="any">
+                    </div>
+                    <div class="mb-3">
+                        <label for="input2" class="form-label">Miles Biked</label>
+                        <input type="number" class="form-control" id="inputBike" step="any">
+                    </div>
+                    <div class="mb-3">
+                        <label for="input3" class="form-label">Hours Lifting Weights</label>
+                        <input type="number" class="form-control" id="inputWeight" step="any">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button id = "submitActivity" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sleep Debt Modal -->
+<div class="modal fade" id="sleepModal" tabindex="-1" aria-labelledby="sleepModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="sleepModalLabel">How much sleep did you get?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="inputSleep" class="form-label">Hours Slept:</label>
+                        <input type="number" class="form-control" id="inputSleep" step="any">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button id="submitSleep" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
