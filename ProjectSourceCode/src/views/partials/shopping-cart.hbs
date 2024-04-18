@@ -39,47 +39,9 @@
     </div>
 
     <!-- Handlebars library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script src="../../resources/js/shoppingScript.js"></script>
     <!-- Your custom JavaScript code -->
-    <script>
-        var button = document.getElementById("add-item-btn");
-        var input = document.getElementById("item-input");
-        var ul = document.getElementById("shopping-cart-items");
-
-        function inputLength() {
-            return input.value.length;
-        }
-
-        function createListElement() {
-            var li = document.createElement("li");
-            var deleteButton = document.createElement("button");
-            li.appendChild(document.createTextNode(input.value));
-            ul.appendChild(li);
-            li.appendChild(deleteButton);
-            deleteButton.innerHTML = "Delete";
-            input.value = "";
-
-            deleteButton.addEventListener("click", function() {
-                ul.removeChild(li);
-            });
-        }
-
-        function addListAfterClick() {
-            if (inputLength() > 0) {
-                createListElement();
-            }
-        }
-
-        function addListAfterKeypress(event) {
-            if (inputLength() > 0 && event.keyCode === 13) {
-                createListElement();
-            }
-        }
-
-        button.addEventListener("click", addListAfterClick);
-
-        input.addEventListener("keypress", addListAfterKeypress);
-    </script>
+    
 </body>
 
 </html>
