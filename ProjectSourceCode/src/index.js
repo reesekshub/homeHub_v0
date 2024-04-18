@@ -168,6 +168,13 @@ app.post("/login", async (req, res) => {
   //pass: test1
 });
 
+
+// ********************* HEALTH APIS START********************************
+
+
+
+// ********************* HEALTH APIS END********************************
+
 //local weather!!!!!!here
 // let city = "";
 // let apiKey = "your_api_key";

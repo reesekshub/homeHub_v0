@@ -1,15 +1,3 @@
-const CALENDAR_EVENTS = [
-  {
-    name: "Running",
-    day: "wednesday",
-    time: "09:00",
-    modality: "In-person",
-    location: "Boulder",
-    url: "",
-    attendees: "Alice, Jack, Ben",
-  },
-];
-
 const CALENDAR_DAYS = [
   "Sunday",
   "Monday",

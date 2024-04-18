@@ -4,3 +4,14 @@ CREATE TABLE users (
   password	CHAR(60) NOT NULL
 );
 
+DROP TABLE IF EXISTS health;
+CREATE TABLE health (
+  username VARCHAR(50) PRIMARY KEY,
+  milesRun INT,
+  milesBike INT,
+  hoursWeights INT,
+  totalCalories INT
+);
+
+  
+
