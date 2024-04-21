@@ -89,7 +89,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/discover", (req, res) => {
-  res.render("pages/discover", { title: "Discover" });
+  const isAuthenticated = req.session.isAuthenticated;
+  res.render("pages/discover");
 });
 
 // Logout
@@ -182,61 +183,7 @@ app.post("/login", async (req, res) => {
   } else {
     res.render("pages/login", { message: "Incorrect password" });
   }
-
-  //valid user:
-  //user: tester1
-  //pass: test1
 });
-
-// *****************************************************
-// <!-- Section 5 : Smart Home Device Integration -->
-// *****************************************************
-
-// Route for retrieving smart home device data
-app.get("/devices", async (req, res) => {
-  try {
-    // Make a request to the smart home device API to retrieve device data
-    const deviceData = await axios.get("https://api.example.com/devices", {
-      headers: {
-        Authorization: `Bearer ${req.session.accessToken}`, // Include access token for authentication
-      },
-    });
-
-    // Send the device data as a response
-    res.json(deviceData.data);
-  } catch (error) {
-    console.error("Error retrieving device data:", error);
-    res.status(500).json({ error: "Failed to retrieve device data" });
-  }
-});
-
-// Route for controlling smart home devices
-app.post("/control/:deviceId", async (req, res) => {
-  const deviceId = req.params.deviceId;
-  const { action } = req.body;
-
-  try {
-    // Make a request to the smart home device API to control the specified device
-    const response = await axios.post(
-      `https://api.example.com/devices/${deviceId}/control`,
-      {
-        action: action,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${req.session.accessToken}`, // Include access token for authentication
-        },
-      }
-    );
-
-    // Send the response from the smart home device API as a response
-    res.json(response.data);
-  } catch (error) {
-    console.error("Error controlling device:", error);
-    res.status(500).json({ error: "Failed to control device" });
-  }
-});
-
 // *****************************************************
 // <!-- Section 6 : Start Server-->
 // *****************************************************

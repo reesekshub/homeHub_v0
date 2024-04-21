@@ -7,20 +7,24 @@
       </button>
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="navbar-nav me-auto">
+          {{#if isAuthenticated}}
           <li class="nav-item">
-            <!-- TODO: For Discover, add a <a> tag with an attribute href to call the '/discover' API -->
             <a class="nav-link" href="/discover">Discover</a>
           </li>
+          <div class="nav-item me-2">
+            <!-- TODO: For Profile, add a <a> tag with an attribute href to call the '/profile API -->
+            <a class="nav-link" href="/profile">Profile</a>
+          </div>
+          {{else}}
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Discover</a> <!-- Redirect to login page -->
+          </li>
+          {{/if}}
         </ul>
-        <div class="nav-item me-1">
-          <!-- TODO: For Logout, add a <a> tag with an attribute href to call the '/logout API -->
-          <a class="nav-link" href="/logout">Logout</a>
-        </div>
-        <div class="nav-item me-2">
-          <!-- TODO: For Profile, add a <a> tag with an attribute href to call the '/profile API -->
-          <a class="nav-link" href="/profile">Profile</a>
-        </div>
+        <!-- TODO: For Logout, add a <a> tag with an attribute href to call the '/logout API -->
+        <a class="nav-link" href="/logout">Logout</a>
       </div>
+    </div>
     </div>
   </nav>
 </header>
