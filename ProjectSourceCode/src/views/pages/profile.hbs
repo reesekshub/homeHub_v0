@@ -1,23 +1,23 @@
 <!-- profile.hbs -->
+<link href="/resources/css/profile.css" rel="stylesheet" />
+<main class="profile_page">
 
-<div class="container">
-    <h2>User Profile</h2>
-    <div class="row">
-        <div class="col-md-6">
-            <h3>Welcome {{user.username}}</h3>
-            {{#each quote}}
-            <h4>{{this}}</h4>
-            {{/each}}
-            <a href="/user/password">Change Password</a>
-            {{#if cpstatus}}
-            <h4 class="text-center text-bg-success text-white ">{{message}}</h4>
-            {{/if}}
+    <div id="profile" class="container">
+        {{!-- <h2>User Profile</h2> --}}
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Welcome {{user.username}}</h3>
+                {{#each quote}}
+                <h4>{{this}}</h4>
+                {{/each}}
+                <a href="/user/password">Change Password</a>
+                {{#if cpstatus}}
+                <h4 class="text-center text-bg-success text-white ">{{message}}</h4>
+                {{/if}}
 
-        </div>
-        <div class="col-md-6">
-            {{!-- <h3>Actions</h3>
-            <a href="/change-password" class="btn btn-primary">Change Password</a> --}}
+            </div>
+
         </div>
     </div>
-</div>
-<script src="/resources/js/profile.js"></script>
+    <script src="/resources/js/profile.js"></script>
+</main>
