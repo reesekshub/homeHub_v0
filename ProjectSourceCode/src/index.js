@@ -148,15 +148,15 @@ app.post("/user/password", auth, async (req, res) => {
   console.log(oldPassword, newPassword, confirmPassword, "password")
   // Add logic to verify old password, match new and confirm passwords,
   // hash the new password, and update it in the database
-  //const oldHashPassword = await bcrypt.hash(oldPassword, 10);
+ // const oldHashPassword = await bcrypt.hash(oldPassword, 10);
   const newHashPassword = await bcrypt.hash(newPassword, 10);
   const query = "SELECT * FROM users WHERE username = $1";
   const username = req.session.user.username
   const userDetails = await db.oneOrNone(query, username)
   console.log("PASSWORD", req.body)
   if (userDetails.username === username) {
-    const validPassword =await bcrypt.compare(userDetails.password, oldPassword)
-    console.log(validPassword, "PAssword match")
+    const validPassword = bcrypt.compareSync(oldPassword,userDetails.password)
+    console.log(validPassword, "Password match")
     if (validPassword) {
       try {
         // Insert username and hashed password into the 'users' table
