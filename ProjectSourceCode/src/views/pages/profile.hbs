@@ -5,19 +5,14 @@
     <div class="row">
         <div class="col-md-6">
             <h3>Welcome {{user.username}}</h3>
+            {{#each quote}}
+            <h4>{{this}}</h4>
+            {{/each}}
             <a href="/user/password">Change Password</a>
-            {{!-- <form action="/update-profile" method="POST">
-                <div class="form-group">
-                    <label for="username">Old Password:</label>
-                    <input type="text" class="form-control" id="username" name="username" value="{{username}}" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" value="{{email}}" required>
-                </div>
+            {{#if cpstatus}}
+            <h4 class="text-center text-bg-success text-white ">{{message}}</h4>
+            {{/if}}
 
-                <button type="submit" class="btn btn-primary">Update Profile</button>
-            </form> --}}
         </div>
         <div class="col-md-6">
             {{!-- <h3>Actions</h3>

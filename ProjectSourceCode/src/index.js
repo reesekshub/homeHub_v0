@@ -148,25 +148,49 @@ app.post("/user/password", auth, async (req, res) => {
   console.log(oldPassword, newPassword, confirmPassword, "password")
   // Add logic to verify old password, match new and confirm passwords,
   // hash the new password, and update it in the database
-  const oldHashPassword = await bcrypt.hash(oldPassword, 10);
+  //const oldHashPassword = await bcrypt.hash(oldPassword, 10);
   const newHashPassword = await bcrypt.hash(newPassword, 10);
   const query = "SELECT * FROM users WHERE username = $1";
   const username = req.session.user.username
   const userDetails = await db.oneOrNone(query, username)
   console.log("PASSWORD", req.body)
-  if (userDetails.password === oldHashPassword && userDetails.username === username) {
-    try {
-      // Insert username and hashed password into the 'users' table
-      await db.none("UPDATE users SET PASSWORD =$2 WHERE USERNAME = $1", [
-        username,
-        newHashPassword,
-      ]);
-      res.status(400).send({ message: "You have successfully changed password" })
-    } catch (err) {
-      console.log(err)
-      console.log("pass", oldHashPassword, newHashPassword)
-      res.status(500).send(err)
-      // res.redirect("/profile"); // Redirect to profile page after password change
+  if (userDetails.username === username) {
+    const validPassword =await bcrypt.compare(userDetails.password, oldPassword)
+    console.log(validPassword, "PAssword match")
+    if (validPassword) {
+      try {
+        // Insert username and hashed password into the 'users' table
+        await db.none("UPDATE users SET PASSWORD =$2 WHERE USERNAME = $1", [
+          username,
+          newHashPassword,
+        ]);
+        console.log("UPATE")
+        res.status(400).render("pages/profile", {
+          user: req.session.user,
+          message: "You have successfully changed password",
+          cpstatus: true,
+          isAuthenticated: req.session.isAuthenticated
+        })
+      } catch (err) {
+        console.log(err)
+        console.log("pass", oldHashPassword, newHashPassword)
+        res.status(500).render("pages/change-password",
+          {
+            message: "Internal error...unable to change password",
+            user: req.session.user,
+            cpstatus: false,
+            isAuthenticated: req.session.isAuthenticated
+          })
+        // res.redirect("/profile"); // Redirect to profile page after password change
+      }
+    }else{
+      res.status(500).render("pages/change-password",
+      {
+        message: "Old password entered is incorrect...unable to change password",
+        user: req.session.user,
+        cpstatus: false,
+        isAuthenticated: req.session.isAuthenticated
+      })
     }
   } else {
     console.log("ELSE", userDetails, oldHashPassword, newHashPassword)
@@ -183,9 +207,36 @@ app.get("/login", (req, res) => {
   res.render("pages/login");
 });
 // Profile
-app.get("/profile", (req, res) => {
+app.get("/profile", async (req, res) => {
   console.log("currently within profile")
-  res.render("pages/profile", { isAuthenticated: req.session.isAuthenticated, user: req.session.user })
+  if (req.session.user) {
+    const options = {
+      method: 'GET',
+      url: 'https://a-randomizer-data-api.p.rapidapi.com/api/random/quotes',
+      params: {
+        count: '1',
+        includeAuthor: 'true'
+      },
+      headers: {
+        'X-RapidAPI-Key': '21730664e5msh7738f1c599723fcp1f8e2ejsn046d700905e3',
+        'X-RapidAPI-Host': 'a-randomizer-data-api.p.rapidapi.com'
+      }
+    };
+
+    try {
+      const response = await axios.request(options);
+      console.log(response.data);
+      res.render("pages/profile", 
+      { isAuthenticated: req.session.isAuthenticated,
+         user: req.session.user,quote:response.data })
+    } catch (error) {
+      console.error(error);
+    }
+
+
+  } else {
+    res.redirect("/login")
+  }
 });
 
 app.post("/login", async (req, res) => {
