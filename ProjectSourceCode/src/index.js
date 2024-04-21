@@ -12,7 +12,7 @@ const bodyParser = require("body-parser");
 const session = require("express-session"); // To set the session object. To store or access session data, use the `req.session`, which is (generally) serialized as JSON by the store.
 const bcrypt = require("bcrypt"); //  To hash passwords
 const axios = require("axios"); // To make HTTP requests from our server. We'll learn more about it in Part C.
-const e = require("express");
+// const e = require("express");
 
 // *****************************************************
 // <!-- Section 2 : Connect to DB -->
@@ -150,6 +150,11 @@ app.post("/change-password", auth, async (req, res) => {
 // Login
 app.get("/login", (req, res) => {
   res.render("pages/login");
+});
+// Profile
+app.get("/profile", (req, res) => {
+  console.log("currently within profile")
+  res.render("pages/profile")
 });
 
 app.post("/login", async (req, res) => {
