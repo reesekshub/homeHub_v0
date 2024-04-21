@@ -90,7 +90,7 @@ app.get("/", (req, res) => {
 
 app.get("/discover", (req, res) => {
   const isAuthenticated = req.session.isAuthenticated;
-  res.render("pages/discover");
+  res.render("pages/discover", { isAuthenticated });
 });
 
 // Logout
@@ -134,17 +134,20 @@ app.post("/register", async (req, res) => {
 });
 
 // Display password change form
-app.get("/change-password", auth, (req, res) => {
-  res.render("change-password");
+app.get("/user/password", auth, (req, res) => {
+  if (req.session.isAuthenticated) {
+    res.render("pages/change-password");
+  } else {
+    res.redirect("/login")
+  }
 });
 
 // Handle password change form submission
-app.post("/change-password", auth, async (req, res) => {
+app.post("/user/password", auth, async (req, res) => {
   const { oldPassword, newPassword, confirmPassword } = req.body;
-
+  console.log(oldPassword, newPassword, confirmPassword, "password")
   // Add logic to verify old password, match new and confirm passwords,
   // hash the new password, and update it in the database
-
   res.redirect("/profile"); // Redirect to profile page after password change
 });
 
@@ -155,7 +158,7 @@ app.get("/login", (req, res) => {
 // Profile
 app.get("/profile", (req, res) => {
   console.log("currently within profile")
-  res.render("pages/profile")
+  res.render("pages/profile", { isAuthenticated: req.session.isAuthenticated, user: req.session.user })
 });
 
 app.post("/login", async (req, res) => {
@@ -177,7 +180,9 @@ app.post("/login", async (req, res) => {
   }
 
   if (match === true) {
+    console.log("User", user)
     req.session.user = user;
+    req.session.isAuthenticated = true
     req.session.save();
     res.redirect("/discover");
   } else {
