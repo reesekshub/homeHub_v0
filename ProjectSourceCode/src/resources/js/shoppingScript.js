@@ -51,13 +51,14 @@ document.addEventListener('DOMContentLoaded', function () {
     function addItemToCart(itemName) {
         const listItem = document.createElement("li");
         listItem.className = "list-group-item shopping-cart-item";
-        listItem.textContent = itemName;
+
+        const textNode = document.createTextNode(itemName);
+        listItem.appendChild(textNode);
 
         const deleteButton = document.createElement("button");
         deleteButton.innerHTML = "Delete";
         deleteButton.addEventListener("click", function() {
             shoppingCartItemsContainer.removeChild(listItem);
-    
         });
 
         listItem.appendChild(deleteButton);
