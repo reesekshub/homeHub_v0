@@ -90,7 +90,7 @@ app.get("/", (req, res) => {
 
 app.get("/discover", (req, res) => {
   const isAuthenticated = req.session.isAuthenticated;
-  res.render('pages/discover');
+  res.render("pages/discover");
 });
 
 // Logout
@@ -163,51 +163,7 @@ app.post("/login", async (req, res) => {
   } else {
     res.render("pages/login", { message: "Incorrect password" });
   }
-
-  //valid user:
-  //user: tester1
-  //pass: test1
 });
-
-//local weather!!!!!!here
-// let city = "";
-// let apiKey = "your_api_key";
-
-// let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&lang=zh_cn`;
-
-// fetch(url)
-//   .then(response => response.json())
-//   .then(data => {
-//     console.log(data);
-
-//     let cityName = data.name;
-//     let temperature = Math.round(data.main.temp - 273.15);
-//     let description = data.weather[0].description;
-//     let iconCode = data.weather[0].icon;
-
-//     document.querySelector(".city").textContent = cityName;
-//     document.querySelector(".temp").textContent = `${temperature}°C`;
-//     document.querySelector(".description").textContent = description;
-//     document.querySelector(".icon").setAttribute("src", `http://openweathermap.org/img/w/${iconCode}.png`);
-//   })
-//   .catch(err => {
-//     console.log(err);
-//   });
-
-
-//traffic
-function initMap() {
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 13,
-    center: { lat: 40.00871694003811, lng: -105.26862404425269 },
-  });
-  const trafficLayer = new google.maps.TrafficLayer();
-
-  trafficLayer.setMap(map);
-}
-
-//window.initMap = initMap;
-//
 // *****************************************************
 // <!-- Section 5 : Start Server-->
 // *****************************************************
