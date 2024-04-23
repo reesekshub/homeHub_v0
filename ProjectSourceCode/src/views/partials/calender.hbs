@@ -1,21 +1,46 @@
+<div id="event-modal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Event Details</h5>
+                <button type="button" class="btn-close modal-close-btn" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="eventDate"></p>
+                <!-- Other form elements for event details -->
+                <form id="eventForm">
+                    <!-- Event name input -->
+                    <input type="text" id="eventName" placeholder="Event Name" required>
+                    <!-- Event start date input -->
+                    <input type="text" id="eventStart" placeholder="Event Start" required>
+                    <!-- Event end date input -->
+                    <input type="text" id="eventEnd" placeholder="Event End" required>
+                    <!-- Submit button -->
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="wrapper">
     <header>
-      <p class="current-date"></p>
-      <div class="icons">
-        <span id="prev" class="material-symbols-rounded">chevron_left</span>
-        <span id="next" class="material-symbols-rounded">chevron_right</span>
-      </div>
+        <p class="current-date"></p>
+        <div class="icons">
+            <span id="prev" class="material-symbols-rounded">chevron_left</span>
+            <span id="next" class="material-symbols-rounded">chevron_right</span>
+        </div>
     </header>
     <div class="calendar">
-      <ul class="weeks">
-        <li>Sun</li>
-        <li>Mon</li>
-        <li>Tue</li>
-        <li>Wed</li>
-        <li>Thu</li>
-        <li>Fri</li>
-        <li>Sat</li>
-      </ul>
-      <ul class="days"></ul>
+        <ul class="weeks">
+            <li>Sun</li>
+            <li>Mon</li>
+            <li>Tue</li>
+            <li>Wed</li>
+            <li>Thu</li>
+            <li>Fri</li>
+            <li>Sat</li>
+        </ul>
+        <ul class="days"></ul>
     </div>
-  </div>
+</div>
