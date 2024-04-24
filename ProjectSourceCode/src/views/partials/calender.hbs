@@ -1,46 +1,62 @@
-<div id="event-modal" class="modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Event Details</h5>
-                <button type="button" class="btn-close modal-close-btn" aria-label="Close"></button>
+<div class="calender_container">
+    <div class="left">
+        <div class="calendar">
+            <div class="month">
+                <i class="fas fa-angle-left prev"></i>
+                <div class="date">{{month}} {{year}}</div>
+                <i class="fas fa-angle-right next"></i>
             </div>
-            <div class="modal-body">
-                <p id="eventDate"></p>
-                <!-- Other form elements for event details -->
-                <form id="eventForm">
-                    <!-- Event name input -->
-                    <input type="text" id="eventName" placeholder="Event Name" required>
-                    <!-- Event start date input -->
-                    <input type="text" id="eventStart" placeholder="Event Start" required>
-                    <!-- Event end date input -->
-                    <input type="text" id="eventEnd" placeholder="Event End" required>
-                    <!-- Submit button -->
-                    <button type="submit">Submit</button>
-                </form>
+            <div class="weekdays">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+            </div>
+            <div class="days">
+                {{#each days}}
+                    <div>{{this}}</div>
+                {{/each}}
+            </div>
+            <div class="goto-today">
+                <div class="goto">
+                    <input type="text" placeholder="mm/yyyy" class="date-input">
+                    <button class="goto-btn">Go</button>
+                </div>
+                <button class="today-btn">Today</button>
             </div>
         </div>
     </div>
-</div>
-
-<div class="wrapper">
-    <header>
-        <p class="current-date"></p>
-        <div class="icons">
-            <span id="prev" class="material-symbols-rounded">chevron_left</span>
-            <span id="next" class="material-symbols-rounded">chevron_right</span>
+    <div class="right">
+        <div class="today-date">
+            <div class="event-day">{{eventDay}}</div>
+            <div class="event-date">{{eventDate}}</div>
         </div>
-    </header>
-    <div class="calendar">
-        <ul class="weeks">
-            <li>Sun</li>
-            <li>Mon</li>
-            <li>Tue</li>
-            <li>Wed</li>
-            <li>Thu</li>
-            <li>Fri</li>
-            <li>Sat</li>
-        </ul>
-        <ul class="days"></ul>
+        <div class="events"></div>
+        <div class="add-event-wrapper">
+            <div class="add-event-header">
+                <div class="title">Add Event</div>
+                <i class="fas fa-times close"></i>
+            </div>
+            <div class="add-event-body">
+                <div class="add-event-input">
+                    <input type="text" placeholder="Event Name" class="event-name">
+                </div>
+                <div class="add-event-input">
+                    <input type="text" placeholder="Event Time From" class="event-time-from">
+                </div>
+                <div class="add-event-input">
+                    <input type="text" placeholder="Event Time To" class="event-time-to">
+                </div>
+            </div>
+            <div class="add-event-footer">
+                <button class="add-event-btn">Add Event</button>
+            </div>
+        </div>
     </div>
+    <button class="add-event">
+        <i class="fas fa-plus"></i>
+    </button>
 </div>
