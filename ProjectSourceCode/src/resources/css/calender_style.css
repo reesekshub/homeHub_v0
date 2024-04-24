@@ -2,8 +2,6 @@
   --primary-clr: #000000;
 }
 
-
-
 .calender_container {
   position: relative;
   right:30%;
@@ -178,9 +176,6 @@
   color: var(--primary-clr);
   font-size: 0.5rem;
 }
-
-
-/* add tick in event after */
 .events .event::after {
   content: "🗑️";
   position: absolute;
