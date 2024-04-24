@@ -1,0 +1,25 @@
+<!-- profile.hbs -->
+<link href="/resources/css/profile.css" rel="stylesheet" />
+<main class="profile_page">
+    <section id="dateTime" >
+        <h2 id="date"></h2>
+        <h4 id="time"></h4>
+    </section>
+    <div id="profile" class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Welcome {{user.username}}</h3>
+                {{#each quote}}
+                <h4>{{this}}</h4>
+                {{/each}}
+                <a href="/user/password" class="text-white fs-2">Change Password</a>
+                {{#if cpstatus}}
+                <h6 class="text-center text-bg-success text-white ">{{message}}</h6>
+                {{/if}}
+
+            </div>
+
+        </div>
+    </div>
+    <script src="/resources/js/profileScript.js"></script>
+</main>
