@@ -1,9 +1,9 @@
 #map {
-  height: 50%;
-  width: 30%;
+  height: 20%;
+  width: 60%;
   position: absolute;
-  top: 85px;
-  right: 10px;
+  bottom: 0px;
+  right: 0px;
 }
 
 /* 

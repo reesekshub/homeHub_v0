@@ -9,8 +9,8 @@
   
   #health {
       position: absolute;
-      bottom: 10px;
-      left: 10px;
+      bottom: 0px;
+      left: 0px;
       height: 300px;
       width: 800px;
       display: flex; /* Updated */
@@ -28,3 +28,24 @@
      
       
   }
+
+
+
+  #homeHubLogo {
+    font-size: 60px;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    color: purple;
+    position: absolute;
+    top: 100px;
+    left: 900px;
+    display: flex; /* Added */
+    
+  }
+
+  #homeHubLogo span {
+    display: block; /* Added */
+  }
+
+  
+

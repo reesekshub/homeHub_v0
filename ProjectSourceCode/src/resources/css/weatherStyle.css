@@ -7,11 +7,13 @@
 }
 
 body {
-  background: #78b4da;
+  background: hsl(272, 100%, 75%);
 }
 
 #weathercontainer {
-    position: relative;
+    position: absolute;
+    top: 8%;
+    right: 1%;
     width: 400px;
     height: 105px;
     background: #fff;

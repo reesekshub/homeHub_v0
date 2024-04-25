@@ -1,5 +1,24 @@
 /* style.css */
 
+.shopping-cart {
+    position: relative;
+    top: -470px;
+    left:575px;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .shopping-cart-item {
+    margin-bottom: 10px;
+  }
+
+  .add-item-btn {
+    margin-top: 10px;
+  }
+
 .shopping-list.horizontal {
     list-style: none;
     padding: 0;
