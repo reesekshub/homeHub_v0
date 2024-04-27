@@ -9,10 +9,12 @@ Dawson Davis-pounders
 Collin Lowe
 ## Technology stack
 This project was developed using the following technologies:
-- Front-end:  CSS, JavaScript, html
+- Front-end:  CSS, JavaScript, html, Bootstrap
 - Backend: Node.js
-- Database: Sql
-- API usage: OpenWeather API, Google map API
+- Database: SqL
+- Containerization: Docker
+- IDE: VScode_
+- API usage: OpenWeather API, Google map API, Date and Time API, Quotes API
 ## Prerequisites for running the application
 - Node.js
 - NPM
